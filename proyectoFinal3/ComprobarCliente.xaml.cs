@@ -29,7 +29,7 @@ public partial class ComprobarCliente : ContentPage
 
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
         {
-            ErrorLabel.Text = "Por favor ingrese usuario y contraseña";
+            ErrorLabel.Text = "Por favor ingrese usuario y contraseÃ±a";
             ErrorLabel.IsVisible = true;
             return;
         }
@@ -41,13 +41,13 @@ public partial class ComprobarCliente : ContentPage
         if (user != null)
         {
             Debug.WriteLine("Usuario autenticado correctamente.");
-            // Redirige a la siguiente página si la autenticación fue exitosa
+            // Redirige a la siguiente pÃ¡gina si la autenticaciÃ³n fue exitosa
             await Navigation.PushAsync(new ClienteMainPage(user));
         }
         else
         {
             // Muestra un error si las credenciales no coinciden
-            ErrorLabel.Text = "Usuario o contraseña incorrectos";
+            ErrorLabel.Text = "Usuario o contraseÃ±a incorrectos";
             ErrorLabel.IsVisible = true;
         }
     }
@@ -56,11 +56,10 @@ public partial class ComprobarCliente : ContentPage
     {
         var nuevoUsuario = new Cliente
         {
+            idCliente = 1,
             usuario = "piero1",
             password = "piero1",
-            medico = 10,
-            citas = "cita1;cita2;cita3",
-            recetas = "receta1;receta2;receta3"
+
         };
 
         await database.InsertAsync(nuevoUsuario);
@@ -82,7 +81,7 @@ public partial class ComprobarCliente : ContentPage
                 return user; // Usuario encontrado
             }
 
-            Debug.WriteLine("Usuario o contraseña incorrectos.");
+            Debug.WriteLine("Usuario o contraseÃ±a incorrectos.");
             return null; // Usuario no encontrado
         }
         catch (Exception ex)
@@ -92,5 +91,4 @@ public partial class ComprobarCliente : ContentPage
         }
     }
 
-    
 }
