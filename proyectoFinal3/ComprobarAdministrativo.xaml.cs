@@ -81,6 +81,7 @@ public partial class ComprobarAdministrativo : ContentPage
             if (user != null)
             {
                 Debug.WriteLine($"Usuario autenticado: {user.usuario}");
+                
                 return user;
                 
             }

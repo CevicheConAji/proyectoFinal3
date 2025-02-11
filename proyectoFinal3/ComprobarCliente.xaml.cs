@@ -1,16 +1,8 @@
 using System.Diagnostics;
-using Firebase.Database;
-using Firebase.Database.Query;
-using Google.Cloud.Firestore;
-using System.Diagnostics;
 using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using SQLite;
-
 
 namespace proyectoFinal3;
 
@@ -37,7 +29,7 @@ public partial class ComprobarCliente : ContentPage
 
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
         {
-            ErrorLabel.Text = "Por favor ingrese usuario y contraseña";
+            ErrorLabel.Text = "Por favor ingrese usuario y contraseÃ±a";
             ErrorLabel.IsVisible = true;
             return;
         }
@@ -49,16 +41,17 @@ public partial class ComprobarCliente : ContentPage
         if (user != null)
         {
             Debug.WriteLine("Usuario autenticado correctamente.");
-            // Redirige a la siguiente página si la autenticación fue exitosa
-            await Navigation.PushAsync(new MainPage());
+            // Redirige a la siguiente pÃ¡gina si la autenticaciÃ³n fue exitosa
+            await Navigation.PushAsync(new ClienteMainPage(user));
         }
         else
         {
             // Muestra un error si las credenciales no coinciden
-            ErrorLabel.Text = "Usuario o contraseña incorrectos";
+            ErrorLabel.Text = "Usuario o contraseÃ±a incorrectos";
             ErrorLabel.IsVisible = true;
         }
     }
+
     private async void OnAddTestUserAsync(object sender, EventArgs e)
     {
         var nuevoUsuario = new Cliente
@@ -66,9 +59,7 @@ public partial class ComprobarCliente : ContentPage
             idCliente = 1,
             usuario = "piero1",
             password = "piero1",
-            idMedico = 10,
-            citas = "cita1,cita2,cita3",
-            recetas = "receta1,receta2,receta3"
+
         };
 
         await database.InsertAsync(nuevoUsuario);
@@ -90,7 +81,7 @@ public partial class ComprobarCliente : ContentPage
                 return user; // Usuario encontrado
             }
 
-            Debug.WriteLine("Usuario o contraseña incorrectos.");
+            Debug.WriteLine("Usuario o contraseÃ±a incorrectos.");
             return null; // Usuario no encontrado
         }
         catch (Exception ex)
@@ -100,16 +91,4 @@ public partial class ComprobarCliente : ContentPage
         }
     }
 
-    public class Cliente
-    {
-        [PrimaryKey, AutoIncrement]
-        public int idCliente { get; set; }
-        public string usuario { get; set; }
-        public string password { get; set; }
-        public int idMedico { get; set; }
-
-        // Citas y recetas almacenadas como cadenas separadas por comas
-        public string citas { get; set; }
-        public string recetas { get; set; }
-    }
 }

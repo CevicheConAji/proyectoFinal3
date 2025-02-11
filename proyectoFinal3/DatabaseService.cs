@@ -38,7 +38,7 @@ public class DatabaseService
 }
 
 // Modelo de Cliente
-public class Cliente
+/*public class Cliente
 {
     [PrimaryKey, AutoIncrement]
     public int idCliente { get; set; }
@@ -48,9 +48,10 @@ public class Cliente
     public int medico { get; set; }
 
     // Citas y recetas se almacenan como cadenas separadas por comas
-    public string[] citas { get; set; }
-    public string[] recetas { get; set; }
+    public string citas { get; set; }
+    public string recetas { get; set; }
 }
+*/
 public class Administrativo
 {
     [PrimaryKey, AutoIncrement]
@@ -58,16 +59,12 @@ public class Administrativo
 
     public string usuario { get; set; }
     public string password { get; set; }
-    public string departamento { get; set; }
-    public String listaClientes { get; set; }
 }
 public class Medico
 {
     [PrimaryKey, AutoIncrement]
-    public int idAdministrativo { get; set; }
+    public int idMedico { get; set; }
 
     public string usuario { get; set; }
     public string password { get; set; }
-    public string departamento { get; set; }
-    public String listaClientes { get; set; }
 }
