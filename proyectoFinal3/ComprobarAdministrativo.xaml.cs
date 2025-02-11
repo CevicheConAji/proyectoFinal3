@@ -18,7 +18,7 @@ public partial class ComprobarAdministrativo : ContentPage
         // Crear la tabla Clientes si no existe
         database.CreateTableAsync<Administrativo>().Wait();
     }
-
+    
     private async void OnBtnLoggin(object sender, EventArgs e)
     {
         var username = UserEntry.Text;
@@ -34,12 +34,16 @@ public partial class ComprobarAdministrativo : ContentPage
         // Autenticar usuario en la base de datos SQLite
         var user = await AuthenticateAdministrativoAsync(username, password);
         Debug.WriteLine("dato usuario: " + username);
+        
+        Administrativo administrativo = new Administrativo();
+        administrativo.usuario = username;
+        
 
         if (user != null)
         {
             Debug.WriteLine("Administrativo autenticado correctamente.");
             // Redirige a la siguiente página si la autenticación fue exitosa
-            await Navigation.PushAsync(new BuscarCliente());
+            await Navigation.PushAsync(new AdministrativoMainPage(user));
         }
         else
         {
@@ -49,20 +53,22 @@ public partial class ComprobarAdministrativo : ContentPage
         }
 
     }
+    
+
+    // Método para agregar un usuario de prueba
     private async void OnAddTestAdministrativoAsync(object sender, EventArgs e)
     {
-        
-        var nuevoUsuario = new Administrativo
-        {
-            usuario = "jorge",
-            password = "jorge",
-            listaIdCliente = 1,
-        };
+        Administrativo administrativo = new Administrativo();
+        administrativo.usuario = "jorge";
+        administrativo.password = "jorge";
+       
 
-        await database.InsertAsync(nuevoUsuario);
+
+        await database.InsertAsync(administrativo);
         Debug.WriteLine("Usuario agregado exitosamente.");
     }
 
+    
     private async Task<Administrativo>AuthenticateAdministrativoAsync(string username, string password)
     {
         try
@@ -90,15 +96,6 @@ public partial class ComprobarAdministrativo : ContentPage
 
         }
         
-    }
+    }   
 
-    public class Administrativo
-    {
-        [PrimaryKey, AutoIncrement]
-        public int idAdministrativo { get; set; }
-
-        public string usuario { get; set; }
-        public string password { get; set; }
-        public int listaIdCliente { get; set; }
-    }
 }

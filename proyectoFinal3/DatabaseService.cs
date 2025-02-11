@@ -59,7 +59,7 @@ public class Administrativo
     public string usuario { get; set; }
     public string password { get; set; }
     public string departamento { get; set; }
-    public Cliente[] listaClientes { get; set; }
+    public String listaClientes { get; set; }
 }
 public class Medico
 {
@@ -69,5 +69,5 @@ public class Medico
     public string usuario { get; set; }
     public string password { get; set; }
     public string departamento { get; set; }
-    public Cliente[] listaClientes { get; set; }
+    public String listaClientes { get; set; }
 }

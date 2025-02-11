@@ -63,9 +63,10 @@ public partial class ComprobarCliente : ContentPage
     {
         var nuevoUsuario = new Cliente
         {
+            idCliente = 1,
             usuario = "piero1",
             password = "piero1",
-            medico = 10,
+            idMedico = 10,
             citas = "cita1,cita2,cita3",
             recetas = "receta1,receta2,receta3"
         };
@@ -105,7 +106,7 @@ public partial class ComprobarCliente : ContentPage
         public int idCliente { get; set; }
         public string usuario { get; set; }
         public string password { get; set; }
-        public int medico { get; set; }
+        public int idMedico { get; set; }
 
         // Citas y recetas almacenadas como cadenas separadas por comas
         public string citas { get; set; }

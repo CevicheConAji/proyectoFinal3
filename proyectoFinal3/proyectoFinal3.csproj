@@ -74,6 +74,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="AdministrativoMainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="BuscarCliente.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
