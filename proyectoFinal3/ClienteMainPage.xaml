@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectoFinal3.ClienteMainPage"
+             Title="ClienteMainPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <StackLayout>
+            <Label x:Name="NombreClienteLabel" Text="Bienvenido:" />
+            <Label x:Name="CitasLabel" Text="Citas:" />
+            <Label x:Name="RecetasLabel" Text="Recetas:" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

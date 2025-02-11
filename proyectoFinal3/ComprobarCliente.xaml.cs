@@ -1,16 +1,8 @@
 using System.Diagnostics;
-using Firebase.Database;
-using Firebase.Database.Query;
-using Google.Cloud.Firestore;
-using System.Diagnostics;
 using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using SQLite;
-
 
 namespace proyectoFinal3;
 
@@ -50,7 +42,7 @@ public partial class ComprobarCliente : ContentPage
         {
             Debug.WriteLine("Usuario autenticado correctamente.");
             // Redirige a la siguiente página si la autenticación fue exitosa
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new ClienteMainPage(user));
         }
         else
         {
@@ -59,6 +51,7 @@ public partial class ComprobarCliente : ContentPage
             ErrorLabel.IsVisible = true;
         }
     }
+
     private async void OnAddTestUserAsync(object sender, EventArgs e)
     {
         var nuevoUsuario = new Cliente
@@ -66,8 +59,8 @@ public partial class ComprobarCliente : ContentPage
             usuario = "piero1",
             password = "piero1",
             medico = 10,
-            citas = "cita1,cita2,cita3",
-            recetas = "receta1,receta2,receta3"
+            citas = "cita1;cita2;cita3",
+            recetas = "receta1;receta2;receta3"
         };
 
         await database.InsertAsync(nuevoUsuario);
@@ -99,16 +92,5 @@ public partial class ComprobarCliente : ContentPage
         }
     }
 
-    public class Cliente
-    {
-        [PrimaryKey, AutoIncrement]
-        public int idCliente { get; set; }
-        public string usuario { get; set; }
-        public string password { get; set; }
-        public int medico { get; set; }
-
-        // Citas y recetas almacenadas como cadenas separadas por comas
-        public string citas { get; set; }
-        public string recetas { get; set; }
-    }
+    
 }
