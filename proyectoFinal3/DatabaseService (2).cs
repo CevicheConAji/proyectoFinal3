@@ -60,11 +60,5 @@ public class Administrativo
     public string usuario { get; set; }
     public string password { get; set; }
 }
-public class Medico
-{
-    [PrimaryKey, AutoIncrement]
-    public int idMedico { get; set; }
 
-    public string usuario { get; set; }
-    public string password { get; set; }
-}
+    

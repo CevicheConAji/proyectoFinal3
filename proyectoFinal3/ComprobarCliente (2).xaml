@@ -13,6 +13,7 @@
         <Button x:Name="btnLogging" Clicked="OnBtnLoggin" Text="Comprobar"></Button>
         <Button x:Name="btnInsertarUser" Clicked="OnAddTestUserAsync" Text="Insertar Cliente"></Button>
         <Label IsVisible="False" Text="" x:Name="ErrorLabel"></Label>
+        <Button Text="Volver" Clicked="OnVolverClicked" />
     </VerticalStackLayout>
     
 </ContentPage>
