@@ -28,5 +28,9 @@ public partial class ClienteMainPage : ContentPage
     {
         RecetasLabel.Text = "Recetas: " + string.Join(", ", cliente.recetas.Split(';'));
     }
+    private async void OnVolverClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 
 }
