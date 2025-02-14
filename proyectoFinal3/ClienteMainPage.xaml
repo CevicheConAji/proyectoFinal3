@@ -13,6 +13,5 @@
             <Label x:Name="CitasLabel" Text="Citas:" />
             <Label x:Name="RecetasLabel" Text="Recetas:" />
         </StackLayout>
-        <Button Text="Volver" Clicked="OnVolverClicked" />
     </VerticalStackLayout>
 </ContentPage>

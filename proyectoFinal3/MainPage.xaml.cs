@@ -16,9 +16,5 @@
         {
             await Navigation.PushAsync(new ComprobarAdministrativo());
         }
-        private async void btnEntrarMedico_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ComprobarMedico());
-        }
     }
 }

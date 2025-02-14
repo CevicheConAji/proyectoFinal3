@@ -16,10 +16,6 @@
              x:Name="btnEntrarAdministrativo"
              Text="Entrar como Administrativo"
              Clicked="btnEntrarAdministrativo_Clicked"/>
-            <Button
-             x:Name="btnEntrarMedico"
-             Text="Entrar como médico"
-             Clicked="btnEntrarMedico_Clicked"/>
 
 
         </VerticalStackLayout>

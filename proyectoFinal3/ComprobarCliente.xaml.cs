@@ -90,10 +90,5 @@ public partial class ComprobarCliente : ContentPage
             return null;
         }
     }
-    private async void OnVolverClicked(object sender, EventArgs e)
-    {
-        await Navigation.PopAsync();
-    }
-
 
 }
